@@ -58,14 +58,23 @@ export const PokemonPage: NextPage<Props> = ({ pokemon }) => {
           </Card>
         </Grid>
         <Grid xs={12} sm={8}>
-          <Card>
+          <Card css={{ color: '$black'}}>
             <Card.Header
-              css={{ display: "flex", justifyContent: "start" , alignItems: 'center' , gap:'$10'}}
+              css={{ display: "flex", justifyContent: 'space-between' , alignItems: 'center' , gap:'$10', color:'$black',
+              "@sm": {
+                justifyContent: 'start',                
+               },
+            
+            }}
             >
               <Text
                 h1
                 transform="capitalize"
                 css={{
+                  fontSize: '30px',
+                  "@sm": {
+                   fontSize: '45px',                
+                  },
                   textGradient: '45deg, $yellow800 -20%, $red200 100%'
                 }}
               >
