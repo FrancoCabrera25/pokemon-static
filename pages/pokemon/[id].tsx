@@ -8,6 +8,7 @@ import { Layout } from "../../components/layouts";
 import { PokemonDetail } from "../../interfaces";
 import { getPokemoInfo, localFavorites } from "../../utils";
 import confetti from "canvas-confetti";
+import { Star } from "react-iconly";
 
 interface Props {
   pokemon: PokemonDetail;
@@ -59,26 +60,27 @@ export const PokemonPage: NextPage<Props> = ({ pokemon }) => {
         <Grid xs={12} sm={8}>
           <Card>
             <Card.Header
-              css={{ display: "flex", justifyContent: "space-between" }}
+              css={{ display: "flex", justifyContent: "start" , alignItems: 'center' , gap:'$10'}}
             >
               <Text
                 h1
                 transform="capitalize"
                 css={{
-                  fontSize: '30px',
-                  "@sm": {
-                   fontSize: '45px',                  
-                  },
+                  textGradient: '45deg, $yellow800 -20%, $red200 100%'
                 }}
               >
                 {pokemon.name}
               </Text>
               <Button
-                color="gradient"
-                ghost={!isInFavorites}
-                onClick={onToggleFavorite}
+                icon={<Star  primaryColor = { isInFavorites ? "red" : "white" }  stroke='bold'
+                size='xlarge' filled />}
+                auto
+                // ghost={!isInFavorites}
+                onClick={onToggleFavorite}  
+                // color='default'       
+                css={{ backgroundColor: 'Black' }}      
               >
-                {!isInFavorites ? " Agregar en favoritos" : "En favoritos"}
+                {/* {!isInFavorites ? " Agregar en favoritos" : "En favoritos"} */}
               </Button>
             </Card.Header>
             <Card.Body>
